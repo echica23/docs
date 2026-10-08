@@ -1,0 +1,10 @@
+for p in \
+  /sys/fs/cgroup \
+  /sys/fs/cgroup/non-systemd \
+  /sys/fs/cgroup/non-systemd/user.slice \
+  /sys/fs/cgroup/non-systemd/user.slice/user-1000.slice
+do
+  echo "=== $p ==="
+  cat "$p/cgroup.controllers"
+  cat "$p/cgroup.subtree_control"
+done
